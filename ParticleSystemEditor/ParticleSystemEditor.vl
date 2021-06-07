@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" Id="Q4Xen5jLiqfOQOY3rWxjLw" LanguageVersion="2021.3.3.131" Version="0.128">
+  <NugetDependency Id="Vq8uLjGYKp3PxuALrYlBvM" Location="VL.CoreLib" Version="2021.3.3" />
+  <Patch Id="AiAIqc0LdcdOXxp3VwdG9w">
+    <Canvas Id="N2mg7FWZ8TFMQAe5GaEtpz" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="J4mSFzSw9PvL1qqI7TxdG7">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="QNCU9IvqvjqL2ZfoFJ9INk">
+        <Canvas Id="RCRMpeo20uJPZ3NkbRcfEe" CanvasType="Group">
+          <Node Bounds="411,317,25,19" Id="MaxIwGItXfXNMo2eKy2uqi">
+            <p:NodeReference LastCategoryFullName="NativeLib.Utility" LastSymbolSource="NativeLib.dll">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="CustomAdd" />
+            </p:NodeReference>
+            <Pin Id="KRhEyy5erkLOHM8ui6mRK1" Name="A" Kind="InputPin" />
+            <Pin Id="P20Gdi7wuaZNGVW34cyOMB" Name="B" Kind="InputPin" />
+            <Pin Id="SDwPvoDt8iUPcA70SnzPGQ" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Pad Id="I0AKdgdOPOCMB6CYuFu7ol" Comment="" Bounds="415,378,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="IFiKH6MY4grQbPOooL4Mir" Comment="A" Bounds="386,275,35,15" ShowValueBox="true" isIOBox="true" Value="0.35">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Float32" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="AWU1bY1zhscPIujWfoHW0w" Comment="B" Bounds="506,266,35,15" ShowValueBox="true" isIOBox="true" Value="0.39">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Float32" />
+            </p:TypeAnnotation>
+          </Pad>
+        </Canvas>
+        <Patch Id="ByTJthdWIu8NYVKbPHJKK2" Name="Create" />
+        <Patch Id="ProzTkwaZDyPNE5Br3R23Y" Name="Update" />
+        <ProcessDefinition Id="Kt5dZH1lljuM6TyehgGdfj">
+          <Fragment Id="IEV17wpPbOZPJ2cVSBjtXO" Patch="ByTJthdWIu8NYVKbPHJKK2" Enabled="true" />
+          <Fragment Id="PJXuYqR4qfUOhc6Q74rh2X" Patch="ProzTkwaZDyPNE5Br3R23Y" Enabled="true" />
+        </ProcessDefinition>
+        <Link Id="FNt08xoNXMIMfGBrPQ838v" Ids="SDwPvoDt8iUPcA70SnzPGQ,I0AKdgdOPOCMB6CYuFu7ol" />
+        <Link Id="IJ5RBUyIiXGQTvRLQoX08z" Ids="IFiKH6MY4grQbPOooL4Mir,KRhEyy5erkLOHM8ui6mRK1" />
+        <Link Id="HufR8kcvvVmOivyrdCoyuV" Ids="AWU1bY1zhscPIujWfoHW0w,P20Gdi7wuaZNGVW34cyOMB" />
+      </Patch>
+    </Node>
+  </Patch>
+  <NugetDependency Id="NNjT7oTGpWILjZ98chkG9Q" Location="VL.CoreLib" Version="2021.3.3" />
+  <PlatformDependency Id="TRKzQl8GWCJLUnYTXo2PZf" Location="../NativeLib/build/netstandard2.0/NativeLib.dll" />
+</Document>

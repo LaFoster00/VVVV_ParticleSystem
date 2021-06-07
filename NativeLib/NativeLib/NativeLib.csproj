@@ -1,12 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>true</Optimize>
-    <OutputPath>lib\</OutputPath>
+    <OutputPath>C:\Users\Lasse\Documents\Git\Private\VVVV_ParticleSystem\NativeLib\build\</OutputPath>
   </PropertyGroup>
 
 </Project>

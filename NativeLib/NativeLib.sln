@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeLib", "NativeLib\NativeLib.csproj", "{1C19E360-5871-4431-901C-4D0D3837D71B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeLib", "NativeLib\NativeLib.csproj", "{1A536B3B-8905-4F82-A0C2-4FFF379F1D17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1C19E360-5871-4431-901C-4D0D3837D71B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C19E360-5871-4431-901C-4D0D3837D71B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C19E360-5871-4431-901C-4D0D3837D71B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C19E360-5871-4431-901C-4D0D3837D71B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A536B3B-8905-4F82-A0C2-4FFF379F1D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A536B3B-8905-4F82-A0C2-4FFF379F1D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A536B3B-8905-4F82-A0C2-4FFF379F1D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A536B3B-8905-4F82-A0C2-4FFF379F1D17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8566B548-0EB2-4817-BA9D-E66929391851}
+		SolutionGuid = {42FAEF1A-F194-4121-A7CC-1C49ED042C30}
 	EndGlobalSection
 EndGlobal
