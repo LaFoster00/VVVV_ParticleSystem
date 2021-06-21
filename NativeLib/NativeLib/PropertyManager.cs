@@ -67,12 +67,12 @@ namespace NativeLib
 		}
 	}
 
-	public class Property
+	public class CustomProperty
 	{
 		public readonly PropertyType PropertyType;
 		public object Value;
 
-		public Property(PropertyType type, object value)
+		public CustomProperty(PropertyType type, object value)
 		{
 			PropertyType = type;
 			Value = value;
@@ -81,7 +81,7 @@ namespace NativeLib
 
 	public class PropertyManager
 	{
-		private Dictionary<string, Property> _properties = new Dictionary<string, Property>();
+		private Dictionary<string, CustomProperty> _properties = new Dictionary<string, CustomProperty>();
 
 		public bool AddProperty(string name, PropertyType type, object initValue)
 		{
@@ -91,7 +91,7 @@ namespace NativeLib
 			}
 			else
 			{
-				_properties.Add(name, new Property(type, initValue));
+				_properties.Add(name, new CustomProperty(type, initValue));
 				return true;
 			}
 		}
@@ -105,7 +105,7 @@ namespace NativeLib
 		{
 			if (_properties.ContainsKey(name) && _properties[name].PropertyType.Type == typeof(T))
 			{
-				Property prop = _properties[name];
+				CustomProperty prop = _properties[name];
 				if (prop.PropertyType.Type == typeof(T))
 				{
 					value = (T) prop.Value;
@@ -122,7 +122,7 @@ namespace NativeLib
 			return _properties.Remove(name);
 		}
 
-		public List<Property> GetProperties()
+		public List<CustomProperty> GetProperties()
 		{
 			return _properties.Values.ToList();
 		}

@@ -29,7 +29,7 @@
             <Pin Id="V7eZsQlhYprQaAZsSJSRL1" Name="Output" Kind="StateOutputPin" />
             <Pin Id="QuMzPkpbVjFL4O9VxF2I9v" Name="Result" Kind="OutputPin" />
           </Node>
-          <Pad Id="JTHwYPSLc9rOOImi2t7J8y" Comment="Name" Bounds="525,153,67,15" ShowValueBox="true" isIOBox="true" Value="HelloWorld">
+          <Pad Id="JTHwYPSLc9rOOImi2t7J8y" Comment="Name" Bounds="531,147,67,15" ShowValueBox="true" isIOBox="true" Value="HelloWorld">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -203,6 +203,159 @@
           </Pad>
           <ControlPoint Id="CVqtmNJHH3nPWU5YiMMSWt" Bounds="551,169" />
           <ControlPoint Id="S97F8b7VgjpO3EjXHcFSWq" Bounds="1021,154" />
+          <!--
+
+    ************************ ParticleNode ************************
+
+-->
+          <Node Name="ParticleNode" Bounds="963,265" Id="GixPXE8oHMLMApXnUMYAzv">
+            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+              <Choice Kind="InterfaceDefinition" Name="Interface" />
+            </p:NodeReference>
+            <Patch Id="EDTlUb8DBSeNdgaHWG4U9u">
+              <Canvas Id="Be9qw7FkcxrN79edBcYmOy" CanvasType="Group">
+                <Pad Id="LkjjdBenFgsQNIFvz0AvgJ" SlotId="Et8X7gsYUTfN8cy0LxbYVN" Bounds="383,250" />
+                <ControlPoint Id="Mod8aeKPQuBPdFRh6ZVrY7" Bounds="383,299" />
+                <Pad Id="R7qmOmBoFfbQYvkTTo3atO" SlotId="Gy4KBfYPkNtOiCxBK38ffR" Bounds="617,268" />
+                <ControlPoint Id="IGxkToH8VCsLdROSKXVQq7" Bounds="622,220" />
+                <ControlPoint Id="QkSICvaYRvdOSBECjONzRC" Bounds="559,220" />
+                <Pad Id="NnUS2waaF1HMJ0fNNCbp4A" SlotId="Sq0ZMUnsEAsMIDmoo6BPGb" Bounds="800,262" />
+                <ControlPoint Id="P4YE7fy83RyLHtFeTvJCWp" Bounds="746,217" />
+                <ControlPoint Id="FDIMZe6moXjLf0602dMHsZ" Bounds="853,217" />
+                <Pad Id="LJAMBRkrMdGPhs7zMfqhhC" SlotId="CTRTam1EnNdLgQbIPbAT2r" Bounds="1094,267" />
+                <ControlPoint Id="OgjJJJmt7gGLF0cv61Se6A" Bounds="1044,228" />
+                <ControlPoint Id="JfSXrCEs2S7My86xLFk6Ua" Bounds="1174,233" />
+              </Canvas>
+              <ProcessDefinition Id="Vg5ZyWhKMMwOaJ0jYyGynC" IsHidden="true">
+                <Fragment Id="IUPnaQdhbEZOV9Y5fNnYkW" Patch="OgJTIKKp9kCNEXazytxhYg" />
+                <Fragment Id="IElRWlAYj2CLDCx4yMoTzs" Patch="FVZKpaCrSBALdDCJoZIo66" />
+                <Fragment Id="Cbpe1qBpsgPONSbqHmgOlk" Patch="FgtmLLHU32oM2fWbZcuR4T" />
+              </ProcessDefinition>
+              <Slot Id="Et8X7gsYUTfN8cy0LxbYVN" Name="Sockets" />
+              <Patch Id="OgJTIKKp9kCNEXazytxhYg" Name="Execute">
+                <Pin Id="KcK8MOl2ZpVLdtXMOGTRr6" Name="Particles" Kind="InputPin" Bounds="544,199" />
+                <Pin Id="JnXPmK2PCvvPJUZQqG5hfc" Name="PropertyManager" Kind="InputPin" Bounds="745,222" />
+                <Pin Id="K3ZvLydAWllLulLPxDsaFg" Name="PropertyTypeManager" Kind="InputPin" Bounds="1044,228" />
+              </Patch>
+              <Patch Id="FVZKpaCrSBALdDCJoZIo66" Name="GetNodeSockets">
+                <Pin Id="BtwffjdJ5ITOgSaXrOcud5" Name="Sockets" Kind="OutputPin">
+                  <p:TypeAnnotation>
+                    <Choice Kind="TypeFlag" Name="ParticleNodeSocket" />
+                  </p:TypeAnnotation>
+                </Pin>
+              </Patch>
+              <Link Id="Uupt92PAkshM6MkBK5QdCm" Ids="Mod8aeKPQuBPdFRh6ZVrY7,BtwffjdJ5ITOgSaXrOcud5" IsHidden="true" />
+              <Link Id="IlMTSvWOYkYONEdbrSy6Wz" Ids="LkjjdBenFgsQNIFvz0AvgJ,Mod8aeKPQuBPdFRh6ZVrY7" />
+              <Patch Id="FgtmLLHU32oM2fWbZcuR4T" Name="Define">
+                <Pin Id="OCbLEBLR5LxNm9Sad3Rmjw" Name="Particles" Kind="InputPin" />
+                <Pin Id="KjqShmVcbo7P0xaa0Tg7cs" Name="PropertyManager" Kind="InputPin" />
+                <Pin Id="TLZt2FddFH3Lkt9pnIWPu2" Name="PropertyTypeManager" Kind="InputPin" />
+              </Patch>
+              <Slot Id="Gy4KBfYPkNtOiCxBK38ffR" Name="Particles">
+                <p:TypeAnnotation>
+                  <Choice Kind="TypeFlag" Name="Spread" />
+                  <p:TypeArguments>
+                    <TypeReference>
+                      <Choice Kind="TypeFlag" Name="Particle" />
+                    </TypeReference>
+                  </p:TypeArguments>
+                </p:TypeAnnotation>
+              </Slot>
+              <Slot Id="Sq0ZMUnsEAsMIDmoo6BPGb" Name="PropertyManager">
+                <p:TypeAnnotation>
+                  <Choice Kind="TypeFlag" Name="PropertyManager" />
+                </p:TypeAnnotation>
+              </Slot>
+              <Slot Id="CTRTam1EnNdLgQbIPbAT2r" Name="PropertyTypeManager">
+                <p:TypeAnnotation>
+                  <Choice Kind="TypeFlag" Name="PropertyTypeManager" />
+                </p:TypeAnnotation>
+              </Slot>
+              <Link Id="T7i4KJr3TnsOyRju2v9a7I" Ids="IGxkToH8VCsLdROSKXVQq7,R7qmOmBoFfbQYvkTTo3atO" />
+              <Link Id="DJFk0NT77CsNZuIteMkrpo" Ids="KcK8MOl2ZpVLdtXMOGTRr6,IGxkToH8VCsLdROSKXVQq7" IsHidden="true" />
+              <Link Id="KXrx0cGAv2WNS4uA83l9TU" Ids="QkSICvaYRvdOSBECjONzRC,R7qmOmBoFfbQYvkTTo3atO" />
+              <Link Id="G8rduEDJEcCL7rMSeeFtBu" Ids="OCbLEBLR5LxNm9Sad3Rmjw,QkSICvaYRvdOSBECjONzRC" IsHidden="true" />
+              <Link Id="SEQpdAtdqUZLjLv5Q52oYI" Ids="P4YE7fy83RyLHtFeTvJCWp,NnUS2waaF1HMJ0fNNCbp4A" />
+              <Link Id="OwaQcFn70WyNtzprrZUJXp" Ids="JnXPmK2PCvvPJUZQqG5hfc,P4YE7fy83RyLHtFeTvJCWp" IsHidden="true" />
+              <Link Id="QVitIKqPyhXL31Ft8Ct22W" Ids="FDIMZe6moXjLf0602dMHsZ,NnUS2waaF1HMJ0fNNCbp4A" />
+              <Link Id="Ie6zbW0Sr7nPsQGdaReOwk" Ids="KjqShmVcbo7P0xaa0Tg7cs,FDIMZe6moXjLf0602dMHsZ" IsHidden="true" />
+              <Link Id="SHYlANOGZy3OIt3TXnUwLu" Ids="OgjJJJmt7gGLF0cv61Se6A,LJAMBRkrMdGPhs7zMfqhhC" />
+              <Link Id="B5LuOhPSd6DLKrHQgfJM5U" Ids="K3ZvLydAWllLulLPxDsaFg,OgjJJJmt7gGLF0cv61Se6A" IsHidden="true" />
+              <Link Id="TbSQBtoioXJOQj66HHKFEY" Ids="JfSXrCEs2S7My86xLFk6Ua,LJAMBRkrMdGPhs7zMfqhhC" />
+              <Link Id="RWG9A3uVNqNMIO6luGs0d7" Ids="TLZt2FddFH3Lkt9pnIWPu2,JfSXrCEs2S7My86xLFk6Ua" IsHidden="true" />
+            </Patch>
+          </Node>
+          <!--
+
+    ************************ ParticleNodeSocket ************************
+
+-->
+          <Node Name="ParticleNodeSocket" Bounds="962,312" Id="VFVYtH9yXNnNK6322FXbzN">
+            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+              <Choice Kind="RecordDefinition" Name="Record" />
+            </p:NodeReference>
+            <Patch Id="TmkEt1BZAFpMJlWtwjCWbP">
+              <Canvas Id="ORLLRRExSwLMPznxhNb69C" CanvasType="Group">
+                <Pad Id="Iiv7F2kiYsUMKxHYBk4B80" SlotId="ITlLTsFJFrCL6e5F7Gp9Ci" Bounds="739,517" />
+                <ControlPoint Id="CXljmtpj87wNOAi18au9L2" Bounds="740,472" />
+                <Pad Id="FRAsBuvmyNWMSX2IjAcOwq" SlotId="Vvb3AgrKSZRLXNpGxXfEPJ" Bounds="828,519" />
+                <ControlPoint Id="PaWQChcvVJeOYxFzeJMVg8" Bounds="740,567" />
+                <ControlPoint Id="Hoh5YzKR22fMXnlsv7UwFe" Bounds="828,566" />
+                <ControlPoint Id="CJABPWmnFvlLhWMxVb3YpC" Bounds="829,470" />
+              </Canvas>
+              <Patch Id="IoxrpVbcsjoLeNFyg4CrH4" Name="Create">
+                <Pin Id="M2xH2Pc92nBNN4xTSNxZWI" Name="Name" Kind="InputPin" Bounds="741,473" />
+                <Pin Id="RuKfngXV4u5PfdRmaXccj2" Name="Name" Kind="OutputPin" Bounds="741,553" />
+                <Pin Id="GDWFE3T8c1YQE4qprj5jpt" Name="Property" Kind="OutputPin" Bounds="824,556" />
+                <Pin Id="CJESNCNc4esQX85ICg7dtS" Name="Property" Kind="InputPin" Bounds="815,473" />
+              </Patch>
+              <ProcessDefinition Id="G1p07jdUqEUOa2ovEu7WsW" IsHidden="true">
+                <Fragment Id="U6DTXDfOmRsNsKxvb1jvPo" Patch="IoxrpVbcsjoLeNFyg4CrH4" Enabled="true" />
+              </ProcessDefinition>
+              <Slot Id="ITlLTsFJFrCL6e5F7Gp9Ci" Name="Name">
+                <p:TypeAnnotation>
+                  <Choice Kind="TypeFlag" Name="String" />
+                </p:TypeAnnotation>
+              </Slot>
+              <Slot Id="Vvb3AgrKSZRLXNpGxXfEPJ" Name="Property">
+                <p:TypeAnnotation>
+                  <Choice Kind="TypeFlag" Name="CustomProperty" />
+                </p:TypeAnnotation>
+              </Slot>
+              <Link Id="AFWnEbgaeayPSPqWuH8q44" Ids="CXljmtpj87wNOAi18au9L2,Iiv7F2kiYsUMKxHYBk4B80" />
+              <Link Id="GszSx5npK5JPh0MzNzHnBm" Ids="M2xH2Pc92nBNN4xTSNxZWI,CXljmtpj87wNOAi18au9L2" IsHidden="true" />
+              <Link Id="PSlHrZrHLzwPTWwuZ6FGt1" Ids="Iiv7F2kiYsUMKxHYBk4B80,PaWQChcvVJeOYxFzeJMVg8" />
+              <Link Id="NGK602ygk29MDLnq9rwnq0" Ids="PaWQChcvVJeOYxFzeJMVg8,RuKfngXV4u5PfdRmaXccj2" IsHidden="true" />
+              <Link Id="KOU8ryuNhskQVFQy4c7ZOX" Ids="Hoh5YzKR22fMXnlsv7UwFe,GDWFE3T8c1YQE4qprj5jpt" IsHidden="true" />
+              <Link Id="Kqf6yU8SzBQO9zc19q8ddV" Ids="CJABPWmnFvlLhWMxVb3YpC,FRAsBuvmyNWMSX2IjAcOwq" />
+              <Link Id="ITs8tVPjDwcPQxpoN2qrm9" Ids="CJESNCNc4esQX85ICg7dtS,CJABPWmnFvlLhWMxVb3YpC" IsHidden="true" />
+              <Link Id="VCqau1kTWzJPscIetY4StW" Ids="FRAsBuvmyNWMSX2IjAcOwq,Hoh5YzKR22fMXnlsv7UwFe" />
+            </Patch>
+          </Node>
+          <!--
+
+    ************************ Particle ************************
+
+-->
+          <Node Name="Particle" Bounds="967,358" Id="CX0tc1LEhicLnHgBsRwgEb">
+            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+              <Choice Kind="RecordDefinition" Name="Record" />
+            </p:NodeReference>
+            <Patch Id="AfV7p7NYmuhOwhRNYcksG0">
+              <Canvas Id="NIQnTak7azZOvBpijXYJjF" CanvasType="Group">
+                <Pad Id="SNbrhr1ePysOd74MJuUYJp" SlotId="Tt2sNYkO822Nl95I9heulN" Bounds="302,339" />
+              </Canvas>
+              <Patch Id="GHIxpw2djGKQDNL1igDtYo" Name="Create" />
+              <ProcessDefinition Id="FrBzoozhYFKQdPuqAVXz17" IsHidden="true">
+                <Fragment Id="IVH4syCsWJ6PSq4o1TR3qq" Patch="GHIxpw2djGKQDNL1igDtYo" Enabled="true" />
+              </ProcessDefinition>
+              <Slot Id="Tt2sNYkO822Nl95I9heulN" Name="ID">
+                <p:TypeAnnotation>
+                  <Choice Kind="TypeFlag" Name="Integer32 (Unsigned)" />
+                </p:TypeAnnotation>
+              </Slot>
+            </Patch>
+          </Node>
         </Canvas>
         <Patch Id="ByTJthdWIu8NYVKbPHJKK2" Name="Create" />
         <Patch Id="ProzTkwaZDyPNE5Br3R23Y" Name="Update" />
