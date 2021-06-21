@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 
 namespace NativeLib
 {
@@ -30,7 +27,7 @@ namespace NativeLib
 		private Dictionary<string, PropertyType> _propertyTypes = new Dictionary<string, PropertyType>();
 		private Dictionary<Type, PropertyType> _typedPropertyTypes = new Dictionary<Type, PropertyType>();
 
-		public List<string> TypeNames = new List<string>();
+		private List<string> _typeNames = new List<string>();
 
 		public bool AddType<T>(string typeName, T typeObject)
 		{
@@ -38,7 +35,7 @@ namespace NativeLib
 
 			_propertyTypes.Add(typeName, new PropertyType(typeName, typeof(T)));
 			_typedPropertyTypes.Add(typeof(T), _propertyTypes[typeName]);
-			TypeNames.Add(typeName);
+			_typeNames.Add(typeName);
 			return true;
 		}
 
@@ -51,14 +48,19 @@ namespace NativeLib
 			return true;
 		}
 
-			public bool DeleteType(string typeName)
+		public bool DeleteType(string typeName)
 		{
 			if (!_propertyTypes.ContainsKey(typeName)) return false;
 
 			_typedPropertyTypes.Remove(_propertyTypes[typeName].Type);
 			_propertyTypes.Remove(typeName);
-			TypeNames.Remove(typeName);
+			_typeNames.Remove(typeName);
 			return true;
+		}
+
+		public IEnumerable<string> GetTypeNames()
+		{
+			return _typeNames.AsEnumerable();
 		}
 
 		public bool TypeExists<T>()
@@ -67,15 +69,35 @@ namespace NativeLib
 		}
 	}
 
-	public class CustomProperty
+	public readonly struct CustomProperty
 	{
 		public readonly PropertyType PropertyType;
-		public object Value;
+		private readonly List<object> _values;
 
-		public CustomProperty(PropertyType type, object value)
+		public CustomProperty(PropertyType type, object value, int reserveSize)
 		{
 			PropertyType = type;
-			Value = value;
+			_values = new List<object>(Enumerable.Repeat(value, reserveSize));
+		}
+
+		public void SetValue(int index, object value)
+		{
+			if (index >= _values.Capacity)
+			{
+				_values.AddRange(Enumerable.Repeat(_values[0], index + 1024 - _values.Capacity));
+			}
+
+			_values[index] = value;
+		}
+
+		public object GetValue(int index)
+		{
+			if (index >= _values.Capacity)
+			{
+				_values.AddRange(Enumerable.Repeat(_values[0], index + 1024 - _values.Capacity));
+			}
+
+			return _values[index];
 		}
 	}
 
@@ -83,7 +105,7 @@ namespace NativeLib
 	{
 		private Dictionary<string, CustomProperty> _properties = new Dictionary<string, CustomProperty>();
 
-		public bool AddProperty(string name, PropertyType type, object initValue)
+		public bool AddProperty(string name, PropertyType type, object initValue, int reserveSize = 2048)
 		{
 			if (_properties.ContainsKey(name))
 			{
@@ -91,7 +113,7 @@ namespace NativeLib
 			}
 			else
 			{
-				_properties.Add(name, new CustomProperty(type, initValue));
+				_properties.Add(name, new CustomProperty(type, initValue, reserveSize));
 				return true;
 			}
 		}
@@ -101,16 +123,23 @@ namespace NativeLib
 			return _properties.ContainsKey(name);
 		}
 
-		public bool GetProperty<T>(string name, out T value)
+		public bool SetPropertyAtIndex<T>(string name, T value, int index = 1)
 		{
 			if (_properties.ContainsKey(name) && _properties[name].PropertyType.Type == typeof(T))
 			{
-				CustomProperty prop = _properties[name];
-				if (prop.PropertyType.Type == typeof(T))
-				{
-					value = (T) prop.Value;
-					return true;
-				}
+				_properties[name].SetValue(index, value);
+				return true;
+			}
+			
+			return false;
+		}
+
+		public bool GetPropertyAtIndex<T>(string name, out T value, int index = 1)
+		{
+			if (_properties.ContainsKey(name))
+			{
+				value = (T) _properties[name].GetValue(index);
+				return true;
 			}
 
 			value = default;
@@ -122,9 +151,14 @@ namespace NativeLib
 			return _properties.Remove(name);
 		}
 
-		public List<CustomProperty> GetProperties()
+		public IEnumerable<CustomProperty> GetProperties()
 		{
-			return _properties.Values.ToList();
+			return _properties.Values.AsEnumerable();
+		}
+
+		public IEnumerable<PropertyType> GetPropertyTypes()
+		{
+			return _properties.Values.Select(property => property.PropertyType);
 		}
 	}
 }
