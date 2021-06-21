@@ -4,9 +4,21 @@ namespace NativeLib
 {
 	public static class Utility
 	{
-		public static float CustomAdd(float a, float b)
+		public static bool IsNull(object value)
 		{
-			return a + b;
+			return value == null;
+		}
+
+		public static void CreateIfNull<T>(T target, out T outTarget)
+		{
+			if (target == null)
+			{
+				outTarget = Activator.CreateInstance<T>();
+			}
+			else
+			{
+				outTarget = target;
+			}
 		}
 	}
 }
