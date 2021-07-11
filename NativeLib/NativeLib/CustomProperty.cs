@@ -4,73 +4,9 @@ using System.Linq;
 
 namespace NativeLib
 {
-	public class PropertyType
+	public class CustomProperty
 	{
-		public string Name;
-		public Type Type;
-
-		public PropertyType(string name, Type type)
-		{
-			Name = name;
-			Type = type;
-		}
-
-		public PropertyType(string name, object typeContext)
-		{
-			Name = name;
-			Type = typeContext.GetType();
-		}
-	}
-
-	public class PropertyTypeManager
-	{
-		private Dictionary<string, PropertyType> _propertyTypes = new Dictionary<string, PropertyType>();
-		private Dictionary<Type, PropertyType> _typedPropertyTypes = new Dictionary<Type, PropertyType>();
-
-		private List<string> _typeNames = new List<string>();
-
-		public bool AddType<T>(string typeName, T typeObject)
-		{
-			if (_propertyTypes.ContainsKey(typeName)) return false;
-
-			_propertyTypes.Add(typeName, new PropertyType(typeName, typeof(T)));
-			_typedPropertyTypes.Add(typeof(T), _propertyTypes[typeName]);
-			_typeNames.Add(typeName);
-			return true;
-		}
-
-		public bool GetType(string typeName, out PropertyType type)
-		{
-			type = null;
-			if (!_propertyTypes.ContainsKey(typeName)) return false;
-
-			type = _propertyTypes[typeName];
-			return true;
-		}
-
-		public bool DeleteType(string typeName)
-		{
-			if (!_propertyTypes.ContainsKey(typeName)) return false;
-
-			_typedPropertyTypes.Remove(_propertyTypes[typeName].Type);
-			_propertyTypes.Remove(typeName);
-			_typeNames.Remove(typeName);
-			return true;
-		}
-
-		public IEnumerable<string> GetTypeNames()
-		{
-			return _typeNames.AsEnumerable();
-		}
-
-		public bool TypeExists<T>()
-		{
-			return _typedPropertyTypes.ContainsKey(typeof(T));
-		}
-	}
-
-	public readonly struct CustomProperty
-	{
+		public bool Alive = true;
 		public readonly PropertyType PropertyType;
 		private readonly List<object> _values;
 
@@ -99,11 +35,36 @@ namespace NativeLib
 
 			return _values[index];
 		}
+
+		public bool GetValueTyped<T>(int index, out T value)
+		{
+			if (typeof(T) != PropertyType.Type)
+			{
+				value = default;
+				return false;
+			}
+
+			if (index >= _values.Capacity)
+			{
+				_values.AddRange(Enumerable.Repeat(_values[0], index + 1024 - _values.Capacity));
+			}
+			
+			value = (T)_values[index];
+			return true;
+		}
+
+		public IEnumerable<T> GetValues<T>()
+		{
+			return _values.Cast<T>();
+		}
 	}
 
 	public class PropertyManager
 	{
 		private Dictionary<string, CustomProperty> _properties = new Dictionary<string, CustomProperty>();
+
+		private Dictionary<PropertyType, List<CustomProperty>> _typedProperties =
+			new Dictionary<PropertyType, List<CustomProperty>>();
 
 		public bool AddProperty(string name, PropertyType type, object initValue, int reserveSize = 2048)
 		{
@@ -114,6 +75,11 @@ namespace NativeLib
 			else
 			{
 				_properties.Add(name, new CustomProperty(type, initValue, reserveSize));
+				if (!_typedProperties.ContainsKey(type))
+				{
+					_typedProperties.Add(type, new List<CustomProperty>());
+				}
+				_typedProperties[type].Add(_properties.Last().Value);
 				return true;
 			}
 		}
@@ -134,6 +100,18 @@ namespace NativeLib
 			return false;
 		}
 
+		public bool GetProperty<T>(string name, IEnumerable<T> values)
+		{
+			if (_properties.ContainsKey(name))
+			{
+				values = _properties[name].GetValues<T>();
+				return true;
+			}
+
+			values = default;
+			return false;
+		}
+
 		public bool GetPropertyAtIndex<T>(string name, out T value, int index = 1)
 		{
 			if (_properties.ContainsKey(name))
@@ -148,7 +126,23 @@ namespace NativeLib
 
 		public bool DeleteProperty(string name)
 		{
-			return _properties.Remove(name);
+			if (!_properties.ContainsKey(name)) return false;
+			_typedProperties.Remove(_properties[name].PropertyType);
+			_properties[name].Alive = false;
+			_properties.Remove(name);
+			return true;
+		}
+
+		public bool GetPropertyReference(string name, out CustomProperty property)
+		{
+			if (!_properties.ContainsKey(name))
+			{
+				property = null;
+				return false;
+			}
+
+			property = _properties[name];
+			return true;
 		}
 
 		public IEnumerable<CustomProperty> GetProperties()
@@ -159,6 +153,20 @@ namespace NativeLib
 		public IEnumerable<PropertyType> GetPropertyTypes()
 		{
 			return _properties.Values.Select(property => property.PropertyType);
+		}
+
+		public void GetPropertiesOfType(PropertyType type, out bool typeFound, out IEnumerable<CustomProperty> properties)
+		{
+			if (_typedProperties.ContainsKey(type))
+			{
+				typeFound = true;
+				properties = _typedProperties[type];
+			}
+			else
+			{
+				typeFound = false;
+				properties = null;
+			}
 		}
 	}
 }
