@@ -66,6 +66,11 @@ namespace NativeLib
 		private Dictionary<PropertyType, List<CustomProperty>> _typedProperties =
 			new Dictionary<PropertyType, List<CustomProperty>>();
 
+		public PropertyManager Create()
+		{
+			return new PropertyManager();
+		}
+
 		public bool AddProperty(string name, PropertyType type, object initValue, int reserveSize = 2048)
 		{
 			if (_properties.ContainsKey(name))
