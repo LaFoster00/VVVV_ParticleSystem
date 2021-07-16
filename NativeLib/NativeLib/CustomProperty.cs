@@ -8,6 +8,7 @@ namespace NativeLib
 
 	public class CustomProperty
 	{
+		public string Name;
 		public bool Alive = true;
 		public readonly PropertyType PropertyType;
 		private readonly List<object> _values;
@@ -21,8 +22,9 @@ namespace NativeLib
 			updateCapacity += AddCapacity;
 		}
 
-		public CustomProperty(PropertyType type, object value, int reserveSize)
+		public CustomProperty(string name, PropertyType type, object value, int reserveSize)
 		{
+			Name = name;
 			_defaultValue = value;
 			PropertyType = type;
 			_values = new List<object>(Enumerable.Repeat(value, reserveSize));
@@ -109,7 +111,7 @@ namespace NativeLib
 			}
 			else
 			{
-				_properties.Add(name, new CustomProperty(type, initValue, _currentCapacity));
+				_properties.Add(name, new CustomProperty(name, type, initValue, _currentCapacity));
 				_updateCapacity += _properties[name].AddCapacity;
 				if (!_typedProperties.ContainsKey(type))
 				{
@@ -196,6 +198,11 @@ namespace NativeLib
 		public IEnumerable<CustomProperty> GetProperties()
 		{
 			return _properties.Values.AsEnumerable();
+		}
+
+		public IEnumerable<string> GetPropertyNames()
+		{
+			return _properties.Keys;
 		}
 
 		public IEnumerable<PropertyType> GetPropertyTypes()
