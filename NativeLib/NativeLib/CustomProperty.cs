@@ -57,6 +57,11 @@ namespace NativeLib
 		{
 			return _values.Cast<T>();
 		}
+
+		public List<object> GetValuesRaw()
+		{
+			return _values;
+		}
 	}
 
 	public class PropertyManager
@@ -65,11 +70,6 @@ namespace NativeLib
 
 		private Dictionary<PropertyType, List<CustomProperty>> _typedProperties =
 			new Dictionary<PropertyType, List<CustomProperty>>();
-
-		public PropertyManager Create()
-		{
-			return new PropertyManager();
-		}
 
 		public bool AddProperty(string name, PropertyType type, object initValue, int reserveSize = 2048)
 		{
@@ -105,7 +105,7 @@ namespace NativeLib
 			return false;
 		}
 
-		public bool GetProperty<T>(string name, IEnumerable<T> values)
+		public bool GetProperty<T>(string name, out IEnumerable<T> values)
 		{
 			if (_properties.ContainsKey(name))
 			{
@@ -113,7 +113,19 @@ namespace NativeLib
 				return true;
 			}
 
-			values = default;
+			values = null;
+			return false;
+		}
+
+		public bool GetPropertyRaw(string name, out List<object> values)
+		{
+			if (_properties.ContainsKey(name))
+			{
+				values = _properties[name].GetValuesRaw();
+				return true;
+			}
+
+			values = null;
 			return false;
 		}
 

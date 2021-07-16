@@ -9,11 +9,6 @@ namespace NativeLib
 		public string Name;
 		public Type Type;
 
-		public static PropertyType Create(string name, Type type)
-		{
-			return new PropertyType(name, type);
-		}
-
 		public PropertyType(string name, Type type)
 		{
 			Name = name;
@@ -33,11 +28,6 @@ namespace NativeLib
 		private Dictionary<Type, PropertyType> _typedPropertyTypes = new Dictionary<Type, PropertyType>();
 
 		private List<string> _typeNames = new List<string>();
-
-		public static PropertyTypeManager Create()
-		{
-			return new PropertyTypeManager();
-		}
 
 		public bool AddType<T>(string typeName, T typeObject)
 		{
