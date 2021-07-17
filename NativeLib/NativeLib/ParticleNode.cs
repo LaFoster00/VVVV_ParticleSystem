@@ -28,13 +28,14 @@ namespace NativeLib
 			return _nodeSlots.Values;
 		}
 
-		public bool AddNodeSlot(string name, PropertyType type)
+		public bool AddNodeSlot(string name, string defaultProp, PropertyType type)
 		{
 			if (_nodeSlots.ContainsKey(name)) return false;
 			_nodeSlots.Add(name, new ParticleNodeSlot()
 			{
 				Name = name,
-				PropertyType = type
+				PropertyType = type,
+				DefaultSocketProp = defaultProp,
 			});
 			return true;
 		}
@@ -51,18 +52,6 @@ namespace NativeLib
 			property = null;
 			return false;
 		}
-
-		/*public bool AddNodeSlot(string name, CustomProperty property)
-		{
-			if (_nodeSlots.ContainsKey(name)) return false;
-			_nodeSlots.Add(name, new ParticleNodeSlot()
-			{
-				Name = name,
-				PropertyType = property.PropertyType,
-				Property = property
-			});
-			return true;
-		}*/
 
 		public void PurgeDeadPropertyReferences()
 		{
@@ -82,11 +71,26 @@ namespace NativeLib
 			}
 			return false;
 		}
+
+		public void SetDefaultPropReferences(PropertyManager propertyManager)
+		{
+			foreach (var nodeSlot in _nodeSlots)
+			{
+				if (propertyManager.GetPropertyReference(nodeSlot.Value.DefaultSocketProp, out CustomProperty property))
+				{
+					if (property.PropertyType.Type == nodeSlot.Value.PropertyType.Type)
+					{
+						nodeSlot.Value.Property = property;
+					}
+				}
+			}
+		}
 	}
 
 	public class ParticleNodeSlot
 	{
 		public string Name = "New NodeSocket";
+		public string DefaultSocketProp;
 		public PropertyType PropertyType;
 		public CustomProperty Property;
 	}
