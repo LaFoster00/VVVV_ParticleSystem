@@ -8,6 +8,8 @@ namespace NativeLib
 {
 	public interface ParticleNode
 	{
+		string Name();
+
 		//use to define the node sockets needed
 		ParticleNodeSlotManager Define(PropertyTypeManager typeManager);
 		ParticleNodeSlotManager GetNodeSlotManager();

@@ -14,12 +14,12 @@ namespace NativeLib
 		private readonly List<object> _values;
 		private readonly object _defaultValue;
 
-		private UpdateCapacity updateCapacity;
+		private PropertyManager _manager;
 
-		public void SetUpdateCapacityCallback(UpdateCapacity updateCapacity)
+		public void SetUpdateCapacityCallback(PropertyManager manager)
 		{
-			this.updateCapacity = updateCapacity;
-			updateCapacity += AddCapacity;
+			_manager = manager;
+			_manager.UpdateCapacity += UpdateCapacity;
 		}
 
 		public CustomProperty(string name, PropertyType type, object value, int reserveSize)
@@ -30,16 +30,24 @@ namespace NativeLib
 			_values = new List<object>(Enumerable.Repeat(value, reserveSize));
 		}
 
-		public void AddCapacity(int index)
+		public void UpdateCapacity(int capacity)
 		{
-			_values.AddRange(Enumerable.Repeat(_defaultValue, index + 1024 - _values.Count()));
+			if (capacity < _values.Count)
+			{
+				_values.RemoveRange(capacity, _values.Count - capacity);
+			}
+			else
+			{
+				_values.Capacity = capacity + 1024;
+				_values.AddRange(Enumerable.Repeat(_defaultValue, capacity - _values.Count()));
+			}
 		}
 
 		public void SetValue(int index, object value)
 		{
 			if (index >= _values.Count())
 			{
-				updateCapacity.Invoke(index);
+				_manager.UpdateCapacity(index);
 			}
 
 			_values[index] = value;
@@ -49,7 +57,7 @@ namespace NativeLib
 		{
 			if (index >= _values.Count())
 			{
-				updateCapacity.Invoke(index);
+				_manager.UpdateCapacity(index);
 			}
 
 			return _values[index];
@@ -65,9 +73,9 @@ namespace NativeLib
 
 			if (index >= _values.Count())
 			{
-				updateCapacity.Invoke(index);
+				_manager.UpdateCapacity(index);
 			}
-			
+
 			value = (T)_values[index];
 			return true;
 		}
@@ -90,17 +98,27 @@ namespace NativeLib
 		private Dictionary<PropertyType, List<CustomProperty>> _typedProperties =
 			new Dictionary<PropertyType, List<CustomProperty>>();
 
-		private UpdateCapacity _updateCapacity;
+		public UpdateCapacity UpdateCapacity;
 		private int _currentCapacity = 2048;
 
 		public PropertyManager()
 		{
-			_updateCapacity += OnUpdateCapacity;
+			UpdateCapacity += OnUpdateCapacity;
 		}
+
+		public int GetCapacity => _currentCapacity;
 
 		private void OnUpdateCapacity(int index)
 		{
-			_currentCapacity = index + 1024;
+			_currentCapacity = index;
+		}
+
+		public void SetCapacity(int capacity)
+		{
+			if (_currentCapacity != capacity)
+			{
+				UpdateCapacity(capacity);
+			}
 		}
 
 		public bool AddProperty(string name, PropertyType type, object initValue)
@@ -111,8 +129,8 @@ namespace NativeLib
 			}
 			else
 			{
-				_properties.Add(name, new CustomProperty(name, type, initValue, _currentCapacity));
-				_updateCapacity += _properties[name].AddCapacity;
+				_properties.Add(name, new CustomProperty(name, type, initValue, _currentCapacity)); 
+				_properties[name].SetUpdateCapacityCallback(this);
 				if (!_typedProperties.ContainsKey(type))
 				{
 					_typedProperties.Add(type, new List<CustomProperty>());

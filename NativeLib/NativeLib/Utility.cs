@@ -47,9 +47,10 @@ namespace NativeLib
 
 		public static void GetParticleNodeTypesDictionary(ParticleNode node, out Dictionary<string, Type> types, out IEnumerable<string> names)
 		{
-			Assembly assembly = node.GetType().Assembly;
+			Type nodeType = node.GetType();
+			Assembly assembly = nodeType.Assembly;
 				types = new Dictionary<string, Type>();
-			foreach (var type in assembly.GetTypes().Where(t => typeof(ParticleNode).IsAssignableFrom(t)))
+			foreach (var type in assembly.GetTypes().Where(t => t != nodeType && typeof(ParticleNode).IsAssignableFrom(t)))
 			{
 				types.Add(type.Name, type);
 			}
@@ -60,6 +61,12 @@ namespace NativeLib
 		public static string GetTypeName(object target)
 		{
 			return $"Target Typename: {target.GetType().Name}; Target Namespace: {target.GetType().Namespace}";
+		}
+
+		public static bool UnsetPinsExisting(IEnumerable<ParticleNode> nodes)
+		{
+			return nodes.Any(node => node.GetNodeSlotManager().GetParticleNodeSlots()
+				.Any(slot => slot.Property == null || !slot.Property.Alive));
 		}
 	}
 }
