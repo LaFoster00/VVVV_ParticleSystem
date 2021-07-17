@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace NativeLib
 {
@@ -19,6 +20,23 @@ namespace NativeLib
 		{
 			Name = name;
 			Type = typeContext.GetType();
+		}
+
+		public object GetDefaultValue()
+		{
+			if (Type.IsValueType)
+			{
+				if (Type.GetMethod("CreateDefault") != null)
+				{
+					Type.GetMethod("CreateDefault").Invoke(null, new object[] { });
+				}
+				else
+				{
+					return Activator.CreateInstance(Type);
+				}
+			}
+
+			throw new InvalidOperationException("Property Type is not value type. Cant create default.");
 		}
 	}
 
