@@ -4231,7 +4231,6 @@
             <ControlPoint Id="JL47xSZuEKlPHRST2EaFiO" Bounds="934,689" />
             <ControlPoint Id="KIoFHt3XwdsPLYnVG8pOo7" Bounds="955,707" />
             <ControlPoint Id="U4XnSUJFAu6PqACIaBDgPG" Bounds="470,861" />
-            <ControlPoint Id="IpR48Gf1DLJNl2e8MtCxJc" Bounds="956,767" />
             <ControlPoint Id="HdQUnAIDyR9LXMDvbZ41XD" Bounds="533,756" />
             <Node Bounds="619,824,44,19" Id="IhEReYqFR8JLDAkEwEdOYf">
               <p:NodeReference LastCategoryFullName="Graphics.Skia" LastSymbolSource="VL.Skia.vl">
@@ -4258,7 +4257,87 @@
               <Pin Id="Q0uXTzClq9AMHBqzT8jSmd" Name="Down Edge" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="UGj8UDI2NTJPSwk0mvzzui" Bounds="607,755" />
-            <ControlPoint Id="FtZpzhw4mmcQPEds21quSc" Bounds="677,758" />
+            <ControlPoint Id="FtZpzhw4mmcQPEds21quSc" Bounds="671,788" />
+            <ControlPoint Id="JyOPlxxBilaP9iyu20mnKo" Bounds="599,877" />
+            <Pad Id="DvAuGAokjs3NyRdUPbRn0x" SlotId="J1npxu2R9i8QOErXMLpHlF" Bounds="852,911" />
+            <Node Bounds="836,952,31,32" Id="DZhVhGBmun7MY9pRxyIOY1">
+              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
+                <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                <CategoryReference Kind="Category" Name="Primitive" />
+              </p:NodeReference>
+              <Pin Id="I5LDGdTe5DPP1dsnSttpQU" Name="Condition" Kind="InputPin" />
+              <Patch Id="VkTVnik9KwtLcU0M2OcWBd" ManuallySortedPins="true">
+                <Patch Id="AnTUGtdK6UlQOoDQmyjFMz" Name="Create" ManuallySortedPins="true" />
+                <Patch Id="AMDOlNi0T5NMY4uqnfQQdl" Name="Then" ManuallySortedPins="true" />
+              </Patch>
+              <ControlPoint Id="Cbh6tW36esOMEZS6Wxdeod" Bounds="850,959" Alignment="Top" />
+              <ControlPoint Id="NA3Sca6nU9QLY5oDwZZyiK" Bounds="850,979" Alignment="Bottom" />
+            </Node>
+            <Node Bounds="706,899,37,19" Id="JZRwC8mlZLHMo0q7kvMKVG">
+              <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="AND" />
+              </p:NodeReference>
+              <Pin Id="Nebi3pxai9aPAv8j1EH59z" Name="Input" Kind="StateInputPin" />
+              <Pin Id="G7uKqmDgHh2OGuW36hbmC6" Name="Input 2" Kind="InputPin" />
+              <Pin Id="C5oWiVVvuLqLN200XjVjq5" Name="Output" Kind="StateOutputPin" />
+            </Node>
+            <ControlPoint Id="LPtuMkLQWA6MLmQqWBOE5e" Bounds="849,1149" />
+            <Pad Id="OBP6eIkQHUSQMLGHfLqz7d" SlotId="J1npxu2R9i8QOErXMLpHlF" Bounds="847,1110" />
+            <Pad Id="IZ3iqnYppcGM0Gm9bM7g1t" SlotId="TGuUc01NXe4L2NWG7k12Te" Bounds="807,879" />
+            <Node Bounds="772,895,37,19" Id="DZ2uSU0I37pQCRdc0A9sQx">
+              <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="NOT" />
+              </p:NodeReference>
+              <Pin Id="QwpsOCrBhs5MmIHyhlhReK" Name="Input" Kind="StateInputPin" />
+              <Pin Id="HsQvLbfjUVkOBjG1UvPZiF" Name="Output" Kind="StateOutputPin" />
+            </Node>
+            <Node Bounds="744,930,30,19" Id="NmRu1qjQhEVNd9DYDh1s8K">
+              <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="OR" />
+              </p:NodeReference>
+              <Pin Id="JYKkkYGIfPDLMK2wFtv6v9" Name="Input" Kind="StateInputPin" />
+              <Pin Id="SDXiSTykcC1OZUrYlPWgxX" Name="Input 2" Kind="InputPin" />
+              <Pin Id="VWb845oOobzMpdwAzHRKkx" Name="Output" Kind="StateOutputPin" />
+              <Pin Id="UVBjOzAnMXaN4SSd1SOv3L" Name="Input 3" Kind="InputPin" />
+            </Node>
+            <Node Bounds="837,990,80,80" Id="RWrlBZx6TlsO22pKo0r8T1">
+              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
+                <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                <CategoryReference Kind="Category" Name="Primitive" />
+              </p:NodeReference>
+              <Pin Id="QKGT19VCNj8PpBo70RMnsQ" Name="Condition" Kind="InputPin" />
+              <Patch Id="SX6gri8oX1XMWYYs6DAR3D" ManuallySortedPins="true">
+                <Patch Id="HFPOGXYOFKeMtnxgRzV702" Name="Create" ManuallySortedPins="true" />
+                <Patch Id="OVN2Bk5pAJMMAyCr0QG6P3" Name="Then" ManuallySortedPins="true" />
+                <Pad Id="MfOjEAPsuKZMa1MuweoHzb" Comment="" Bounds="882,1026" isIOBox="true" Value="True">
+                  <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                    <Choice Kind="TypeFlag" Name="Boolean" />
+                  </p:TypeAnnotation>
+                  <p:ValueBoxSettings>
+                    <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+                  </p:ValueBoxSettings>
+                </Pad>
+              </Patch>
+              <ControlPoint Id="UDFQL1arrZtN2aahyG3jC9" Bounds="851,997" Alignment="Top" />
+              <ControlPoint Id="OLPyP3F5c7pPJ1xgjNlckq" Bounds="851,1065" Alignment="Bottom" />
+              <ControlPoint Id="QgULQa8A1rPMdCnEucrl9V" Bounds="899,1065" Alignment="Bottom" />
+              <ControlPoint Id="QSbzP8G8ffDNslET8bx5JG" Bounds="900,997" Alignment="Top" />
+            </Node>
+            <Pad Id="AXnaOQ1E5kCP3qI5CN7DzE" SlotId="TGuUc01NXe4L2NWG7k12Te" Bounds="901,1095" />
+            <ControlPoint Id="TjbVdV3rwR2NoS6J4M9X1T" Bounds="897,896" />
+            <Node Bounds="747,845,16,19" Id="Axcjb83yndIOlA8wA3130r">
+              <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="NOT" />
+              </p:NodeReference>
+              <Pin Id="FTcydoA4Lv6PLjFu2gKZQN" Name="Input" Kind="StateInputPin" />
+              <Pin Id="ILuMZfJnEKYO6ip3ZLEEpG" Name="Output" Kind="StateOutputPin" />
+            </Node>
           </Canvas>
           <Patch Id="DABRxSbiYPtOllvfXhQpkQ" Name="Create" />
           <Patch Id="PYVSo7prLJUMQTHSiLiBTV" Name="Update">
@@ -4276,7 +4355,6 @@
             <Pin Id="QXdwNdtjYCbNNKvSxP2tKA" Name="Vertical Alignment" Kind="InputPin" />
             <Pin Id="PBmfdaBVw0HOnxcwvIYGtr" Name="Render" Kind="InputPin" />
             <Pin Id="Ak86ZKwQ5s3PMf9YleDOuM" Name="Layer" Kind="OutputPin" />
-            <Pin Id="Vt0gCC62NQEMNcAg0QATYV" Name="Text" Kind="OutputPin" />
             <Pin Id="KeZfJBaTGnRLQMwPo6guYp" Name="Selected" Kind="OutputPin" />
             <Pin Id="Amrpr9CxvqjLBb7vcxogDT" Name="SelectionHandler" Kind="OutputPin" />
             <Pin Id="H6FcwAscYc6LMbtmte8koH" Name="SelectionHandler" Kind="InputPin" />
@@ -4293,6 +4371,12 @@
             </Pin>
             <Pin Id="TyoKwEItyUUQY7BnQVYdUI" Name="OnSelect" Kind="OutputPin" />
             <Pin Id="TKrg5JrvBo5MRixmXTkJJ2" Name="OnDeselct" Kind="OutputPin" />
+            <Pin Id="FhfrkSxyZyJNETfdswwjjs" Name="UpdateTextOnDeselect" Kind="InputPin" DefaultValue="True">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="FhL9dneTN1YMezIUb5OBip" Name="Text" Kind="OutputPin" />
           </Patch>
           <ProcessDefinition Id="RqQZbCPpDGgPshy3KfFuDd">
             <Fragment Id="A4LjMu4lr8BLQHImOQL9YU" Patch="DABRxSbiYPtOllvfXhQpkQ" Enabled="true" />
@@ -4326,8 +4410,6 @@
           <Link Id="B6imwCgOa4HOKTCx3DhR5d" Ids="PBmfdaBVw0HOnxcwvIYGtr,KIoFHt3XwdsPLYnVG8pOo7" IsHidden="true" />
           <Link Id="C6esiHXuhNDNIFQONVGpVx" Ids="KIoFHt3XwdsPLYnVG8pOo7,OBYFSG0U6KYLlW1eJFb4I7" />
           <Link Id="HPgTtJzwi3YMNdMUm1MAm7" Ids="U4XnSUJFAu6PqACIaBDgPG,Ak86ZKwQ5s3PMf9YleDOuM" IsHidden="true" />
-          <Link Id="C3xyTAbpKxeO21kknh70uo" Ids="IpR48Gf1DLJNl2e8MtCxJc,Vt0gCC62NQEMNcAg0QATYV" IsHidden="true" />
-          <Link Id="O0hQAJm7mNaOuzKbaiCUdi" Ids="Q1uGmtKCoJQLnPMVWgAa2z,IpR48Gf1DLJNl2e8MtCxJc" />
           <Link Id="VRkOzFq0O5eLvK8mfp7Aj1" Ids="HdQUnAIDyR9LXMDvbZ41XD,KeZfJBaTGnRLQMwPo6guYp" IsHidden="true" />
           <Link Id="FDkypGEBFGDMaD3FC8oJiC" Ids="A1Bz4fVcnCjQY60dIF8XPf,HdQUnAIDyR9LXMDvbZ41XD" />
           <Link Id="S8Y2ap6q1TsOCWVnkfBu0c" Ids="EOp30cVSCGLLWZ1fwIQVAJ,REE0r4UQw13M9fDjHjYA0q" />
@@ -4350,6 +4432,35 @@
           <Link Id="ARO7ScYQ8YFQbzOW5n0ofR" Ids="CjUY5UzeWxKNGfSNDYMRoS,UGj8UDI2NTJPSwk0mvzzui" />
           <Link Id="HKyshNX7cS8Lsq5LbKRBBS" Ids="FtZpzhw4mmcQPEds21quSc,TKrg5JrvBo5MRixmXTkJJ2" IsHidden="true" />
           <Link Id="UInPNEmoqugMvXke8Xnxr4" Ids="Q0uXTzClq9AMHBqzT8jSmd,FtZpzhw4mmcQPEds21quSc" />
+          <Link Id="HKsyA0ZtDfRNKMYjNnx4jq" Ids="FhfrkSxyZyJNETfdswwjjs,JyOPlxxBilaP9iyu20mnKo" IsHidden="true" />
+          <Slot Id="J1npxu2R9i8QOErXMLpHlF" Name="Text" />
+          <Link Id="GE3eEKMWfEBP6FzQL01LTC" Ids="JyOPlxxBilaP9iyu20mnKo,Nebi3pxai9aPAv8j1EH59z" />
+          <Link Id="TqrK25r9QDsMNXzh3iGIG3" Ids="Q0uXTzClq9AMHBqzT8jSmd,G7uKqmDgHh2OGuW36hbmC6" />
+          <Link Id="IpmVQcn4AbRNqX7aoQt6rH" Ids="LPtuMkLQWA6MLmQqWBOE5e,FhL9dneTN1YMezIUb5OBip" IsHidden="true" />
+          <Link Id="Rfx79zUyNIXMaMpjTXziMU" Ids="Cbh6tW36esOMEZS6Wxdeod,NA3Sca6nU9QLY5oDwZZyiK" IsFeedback="true" />
+          <Link Id="EuaSNWTQRw0MUsZJkvl8kx" Ids="DvAuGAokjs3NyRdUPbRn0x,Cbh6tW36esOMEZS6Wxdeod" />
+          <Link Id="Ok0qIiaykxNPYXfAVALTqc" Ids="Q1uGmtKCoJQLnPMVWgAa2z,NA3Sca6nU9QLY5oDwZZyiK" />
+          <Link Id="ON6vhDmd93lOyFdf8pRlRA" Ids="OBP6eIkQHUSQMLGHfLqz7d,LPtuMkLQWA6MLmQqWBOE5e" />
+          <Slot Id="TGuUc01NXe4L2NWG7k12Te" Name="NotInit">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+          </Slot>
+          <Link Id="KqQC1DZ9x1kOnYFRoEzkAA" Ids="IZ3iqnYppcGM0Gm9bM7g1t,QwpsOCrBhs5MmIHyhlhReK" />
+          <Link Id="CckbmmlrWDFLwWXIM9m1Tk" Ids="C5oWiVVvuLqLN200XjVjq5,JYKkkYGIfPDLMK2wFtv6v9" />
+          <Link Id="JBoS3SkPIDkOAqnKRb4Xhc" Ids="VWb845oOobzMpdwAzHRKkx,I5LDGdTe5DPP1dsnSttpQU" />
+          <Link Id="GVuydLVbf7oNZtFss97fEw" Ids="HsQvLbfjUVkOBjG1UvPZiF,QKGT19VCNj8PpBo70RMnsQ" />
+          <Link Id="SvORhbyicF5MNt3WiVdClD" Ids="UDFQL1arrZtN2aahyG3jC9,OLPyP3F5c7pPJ1xgjNlckq" IsFeedback="true" />
+          <Link Id="EveWKlUgs7wNFM1vyCbMhX" Ids="NA3Sca6nU9QLY5oDwZZyiK,UDFQL1arrZtN2aahyG3jC9" />
+          <Link Id="FhqWeuYdgarPRMnWo5RDMi" Ids="UDFQL1arrZtN2aahyG3jC9,OLPyP3F5c7pPJ1xgjNlckq" />
+          <Link Id="JwIydUaREFuOuWbAyxcbWQ" Ids="OLPyP3F5c7pPJ1xgjNlckq,OBP6eIkQHUSQMLGHfLqz7d" />
+          <Link Id="G1IzKZDRWedQUIgXCYLEyj" Ids="QSbzP8G8ffDNslET8bx5JG,QgULQa8A1rPMdCnEucrl9V" IsFeedback="true" />
+          <Link Id="JQDf41EYXnSNUPFHzs4xcc" Ids="QgULQa8A1rPMdCnEucrl9V,AXnaOQ1E5kCP3qI5CN7DzE" />
+          <Link Id="VkhuFzKXtTuOU82YtTfhWt" Ids="MfOjEAPsuKZMa1MuweoHzb,QgULQa8A1rPMdCnEucrl9V" />
+          <Link Id="Lo4I80J74dpMGHK3Uokoej" Ids="IZ3iqnYppcGM0Gm9bM7g1t,TjbVdV3rwR2NoS6J4M9X1T,QSbzP8G8ffDNslET8bx5JG" />
+          <Link Id="FK0KnQchpuPNMKRngPyxQM" Ids="HsQvLbfjUVkOBjG1UvPZiF,UVBjOzAnMXaN4SSd1SOv3L" />
+          <Link Id="VC1Wy9BaM1dPXET9LaSeZE" Ids="A1Bz4fVcnCjQY60dIF8XPf,FTcydoA4Lv6PLjFu2gKZQN" />
+          <Link Id="A7d0vnOF8PhOOescVtaehN" Ids="ILuMZfJnEKYO6ip3ZLEEpG,SDXiSTykcC1OZUrYlPWgxX" />
         </Patch>
       </Node>
       <!--
@@ -5337,6 +5448,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="V0cC7ga3tDxQEPmW5tj5bx" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="HfzfC99oP2FOqj4B0plyf7" Name="SelectableColor" Kind="InputPin" DefaultValue="1, 0, 0, 1">
                 <p:TypeAnnotation LastCategoryFullName="Color" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="RGBA" />
@@ -5438,6 +5550,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="T62srDVQQgcPlyxZABLzmU" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="KYUw4cHf0rRO23HZVHRWUs" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="CDCEztWV4fHPlTEDZxwnwo" Name="Position" Kind="InputPin" />
               <Pin Id="J3lJ9XQWfjfL5pP8kB0MVp" Name="BoxSize" Kind="InputPin" />
@@ -6944,6 +7057,7 @@
               <Pin Id="OgQmwsnnMzBNKQUoHjvawj" Name="Layer" Kind="InputPin" />
               <Pin Id="Kqlt7JpJDPwQRWkx4j9NCz" Name="SelectionHandler" Kind="InputPin" />
               <Pin Id="SKNliKk6TPtMhNiK9OynvC" Name="SelectableOutline" Kind="InputPin" />
+              <Pin Id="Bg4LcH0FpglLqzOYIwsISt" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="Ff9o7nqBObOObR9jVVa2aV" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="QRjeGwjboTyPic5Bm2JXxl" Name="Position" Kind="InputPin" />
               <Pin Id="HpukXBVhZtaPmnNAyBDBwH" Name="BoxSize" Kind="InputPin" />
@@ -7405,6 +7519,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="Ue6a7FZMDckLMkZG1cdpug" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="UO5HxmAVe3eOR6YF5e6hVf" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="UqXddroqYqxMXEzQmgcFXM" Name="Position" Kind="InputPin" />
               <Pin Id="M1V80U27Z1LNCoRVd5euhi" Name="BoxSize" Kind="InputPin" />
@@ -13420,6 +13535,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="GicvyknbFllMLpPKDxkRaA" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="RzZM97K9HvvLoYSJ5qGqoQ" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="CWzP4ZVJdq8QaMoOI2deTC" Name="Position" Kind="InputPin" />
               <Pin Id="Px0ZFCzKeF2PgoCbImpJw4" Name="BoxSize" Kind="InputPin" />
@@ -13604,6 +13720,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="PN58cx51p1DPV4stcxDSik" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="RaCmvJno6S3LRRXpLSTSFW" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="NPeoUzSJr6bQAQmWn6Rrz0" Name="Position" Kind="InputPin" />
               <Pin Id="RY1tU3ICQk9Mf25iYFFP3h" Name="BoxSize" Kind="InputPin" />
@@ -13726,6 +13843,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="AZqjjrtmYJ0LEfLZmgEVtS" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="PyphYJLtUBWMmh6Fxo4tgz" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="UzHPUDU56gPNcV57KdHsI6" Name="Position" Kind="InputPin" />
               <Pin Id="IjpG4gWCxRROTg4kH0fyE4" Name="BoxSize" Kind="InputPin" />
@@ -13947,6 +14065,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="Shms9bwILarNGUc1R3Nree" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="HKU9Qj6rO0QNqgm81K3VMx" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="EIiefGOgKJOQSmzxMHXu6K" Name="Position" Kind="InputPin" />
               <Pin Id="D4yfOPZ0tjHP3fuHFHfhhb" Name="BoxSize" Kind="InputPin" />
@@ -14032,6 +14151,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="JWhp7CK9OFlNqMC03fWUvs" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="OdG4HLJ5N5aL66V90Wdt3a" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="VT6Fz7ZuQQmMeF6ehuTHjP" Name="Position" Kind="InputPin" />
               <Pin Id="Uk3EU5b31nvN3ifQ111DUk" Name="BoxSize" Kind="InputPin" />
@@ -14097,6 +14217,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="UznPCz8Ys5oLIWojcbVYIu" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="V7OBnHyno7OPvkvwlK5YFR" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="L0DWkwfoAGlMdo1b4KE98o" Name="Position" Kind="InputPin" />
               <Pin Id="MPyood4OEX9OlW7gEOGp9A" Name="BoxSize" Kind="InputPin" />
@@ -14361,6 +14482,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="VaSFqCoHhLXOgJQWBr4us6" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="FR78jk6DQZ0LuxYeZ8gdop" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="OQAGsst3lEcQSdkkxjueVy" Name="Position" Kind="InputPin" />
               <Pin Id="HmDdsFeLyQwLN9jhK6xNgC" Name="BoxSize" Kind="InputPin" />
@@ -14435,6 +14557,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="GXngltFp3XqOoztgTtmU0r" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="SN5H9iM04HPQWqj2kX4CPk" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="K48z5IMcBr8QEXYfmWG8Ty" Name="Position" Kind="InputPin" />
               <Pin Id="JmbccRYPxbUOoIOipuEwhC" Name="BoxSize" Kind="InputPin" />
@@ -14500,6 +14623,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="Tzym1iL7u8wN1ks7yitia6" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="I8QZ4TNTu6pNrzaqOITvQS" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="AaMB94NyARtMhBJJgO5xkU" Name="Position" Kind="InputPin" />
               <Pin Id="NJlKK88VHtyN0wH4l0jfuz" Name="BoxSize" Kind="InputPin" />
@@ -14598,6 +14722,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="EsK869hPiV4QSYItO6tchy" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="SHUcuewUn8KM5RLiebnTq1" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="OFHHwBgu9m3PdTVTcjsac7" Name="Position" Kind="InputPin" />
               <Pin Id="BPU9hczbX3FPovzwGDU5VX" Name="BoxSize" Kind="InputPin" />
@@ -15038,6 +15163,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="S1u8hW9vg1dPj4vYkb6Jhf" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="HcwOMzNvujZNtWXW5sBwbY" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="G0Rc3v7sbLHPI9bJ0DXcgK" Name="Position" Kind="InputPin" />
               <Pin Id="TsaUqPcckyWLhvw7KWPrOZ" Name="BoxSize" Kind="InputPin" />
@@ -15112,6 +15238,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="TKGFy9koOPPMdPIfq4TbSo" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="HcrSnN3clIUNaeiFiaZSgZ" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="Hq2feRKDRnnPGXOEKZHJAK" Name="Position" Kind="InputPin" />
               <Pin Id="OOnq6FBTiecNpJW8323B4z" Name="BoxSize" Kind="InputPin" />
@@ -15181,6 +15308,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="SCkmYMzyQtCPWxwdxQ1S0B" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="D6vl9lFP2rTQO6sSM1zaiP" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="BYc1pIbRowbMJIKPSo2byD" Name="Position" Kind="InputPin" />
               <Pin Id="PhGQDRaWvc2OCTc2hJiQsx" Name="BoxSize" Kind="InputPin" />
@@ -15267,6 +15395,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="NzgVe9CJvePLQTnyAbythU" Name="UpdateTextOnDeselect" Kind="InputPin" />
               <Pin Id="ARWRMEi5pNoM8DEs4puPSG" Name="SelectableColor" Kind="InputPin" />
               <Pin Id="S6Msjk7p0kWLJE9vV0unYK" Name="Position" Kind="InputPin" />
               <Pin Id="NJSitOBKQ5APDjo1Cyo9n2" Name="BoxSize" Kind="InputPin" />
