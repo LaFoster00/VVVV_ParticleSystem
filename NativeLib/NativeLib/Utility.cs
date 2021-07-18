@@ -66,7 +66,12 @@ namespace NativeLib
 		public static bool UnsetPinsExisting(IEnumerable<ParticleNode> nodes)
 		{
 			return nodes.Any(node => node.GetNodeSlotManager().GetParticleNodeSlots()
-				.Any(slot => slot.Property == null || !slot.Property.Alive));
+				.Any(slot => slot.SlotType == ParticleNodeSlotType.Property && (slot.Property == null || !slot.Property.Alive)));
+		}
+
+		public static T[] CreateArrayWithSize<T>(int capacity)
+		{
+			return new T[capacity];
 		}
 	}
 }
