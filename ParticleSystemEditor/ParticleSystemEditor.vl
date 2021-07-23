@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="Q4Xen5jLiqfOQOY3rWxjLw" LanguageVersion="2021.3.3.131" Version="0.128">
-  <NugetDependency Id="Vq8uLjGYKp3PxuALrYlBvM" Location="VL.CoreLib" Version="2021.3.3" />
+<Document xmlns:p="property" Id="Q4Xen5jLiqfOQOY3rWxjLw" LanguageVersion="2021.3.2.109" Version="0.128">
+  <NugetDependency Id="Vq8uLjGYKp3PxuALrYlBvM" Location="VL.CoreLib" Version="2021.3.2" />
   <Patch Id="AiAIqc0LdcdOXxp3VwdG9w">
     <Canvas Id="N2mg7FWZ8TFMQAe5GaEtpz" DefaultCategory="Main" CanvasType="FullCategory">
       <!--
@@ -16879,9 +16879,9 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="NNjT7oTGpWILjZ98chkG9Q" Location="VL.CoreLib" Version="2021.3.3" />
-  <PlatformDependency Id="TRKzQl8GWCJLUnYTXo2PZf" Location="../NativeLib/build/netstandard2.0/NativeLib.dll" IsForward="true" />
-  <NugetDependency Id="R2OB8tcLxRjNobgxzXLs0B" Location="VL.Skia" Version="2021.3.3" />
-  <NugetDependency Id="BpsqnNV0ZAULqm3yELMN2U" Location="VL.CoreLib.Windows" Version="2021.3.3" />
-  <NugetDependency Id="SASljIOZ7UtL4f5UEv1LYx" Location="VL.Stride" Version="2021.3.3" />
+  <NugetDependency Id="NNjT7oTGpWILjZ98chkG9Q" Location="VL.CoreLib" Version="2021.3.2" />
+  <NugetDependency Id="R2OB8tcLxRjNobgxzXLs0B" Location="VL.Skia" Version="2021.3.2" />
+  <NugetDependency Id="BpsqnNV0ZAULqm3yELMN2U" Location="VL.CoreLib.Windows" Version="2021.3.2" />
+  <NugetDependency Id="SASljIOZ7UtL4f5UEv1LYx" Location="VL.Stride" Version="0.9.96-gbe66fd6c22" />
+  <PlatformDependency Id="Dd7J40j0qdPOmNtEm6N05F" Location="../NativeLib/build/netstandard2.0/NativeLib.dll" />
 </Document>

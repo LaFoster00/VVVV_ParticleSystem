@@ -8,4 +8,8 @@
     <OutputPath>C:\Users\Lasse\Documents\Git\Private\VVVV_ParticleSystem\NativeLib\build\</OutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\build\</OutputPath>
+  </PropertyGroup>
+
 </Project>
